@@ -75,7 +75,7 @@ public:
 			cout<<"kek";
 			throw -1;
 		}
-		return mas[begin];
+		return mas[begin];ffff
 	}
 
 	friend ostream& operator<<(ostream &out, const Tqueue <T> &q)
