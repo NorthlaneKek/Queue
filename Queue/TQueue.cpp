@@ -1,18 +1,38 @@
 #include "stdafx.h"
 #include "TQueue.h"
+#include <ctime>
 
 void main()
 {
+	srand ( time(NULL) );  
 	setlocale(LC_ALL, "Russian");
-	Tqueue <int> q(3);
-	int v, c, m;
-	cout<<"Введите элементы: ";
-	cin>>v>>c>>m;
-	q.Push(v);
-	q.Push(c);
-	q.Push(m);
-	cout<<q;
-	int s = q.Pop();
-	cout<<"\n";
-	cout<<"Состояние очереди после выталкивания первого элемента:\n"<<q;
+	cout<<"Введите размер очереди: ";
+	int Size;
+	cin>>Size;
+	Tqueue <int> Q(Size);
+	double p,q;
+	cout<<"Введите вероятность добавления: ";
+	cin>>p;
+	p=p*100;
+	cout<<"Введите вероятность извлечения элемента: ";
+	cin>>q;
+	q=q*100;
+    while (Q.GetLen()< Q.GetMaxSize())
+	{
+		double p1 = rand()%100+1;
+		double q1 = rand()%100+1;
+		if (p1<p)
+		{
+			Q.Push(p1);
+			cout<<Q;
+		}
+		if (q1<q)
+		{
+			if (Q.GetLen()!=0)
+			{
+			int tmp = Q.Pop();
+			cout<<Q;
+		}
+		}
+	}
 }

@@ -53,7 +53,10 @@ public:
 	{
 		T tmp = mas[begin];
 		if (IsEmpty())
+		{
+			cout<<"Очередь пуста ";
 			throw -1;
+		}
 		else 
 		{
 		if (begin < MaxSize-1)
@@ -77,10 +80,7 @@ public:
 
 	friend ostream& operator<<(ostream &out, const Tqueue <T> &q)
 	{
-		out << "Максимальная длина очереди: " << q.MaxSize << '\n';
 		out << "Количество элементов в очереди: " << q.len << '\n';
-		out << "Первый элемент в очереди: " << q.mas[0] << '\n';
-		
 		if (q.len == 0)
 			out << "Очередь пуста\n";
 		else
@@ -92,6 +92,16 @@ public:
 			return out;
 		}
 	}
+	int GetLen()
+	{
+		return len;
+	}
+
+	int GetMaxSize()
+	{
+		return MaxSize;
+	}
+
 };
 
 
